@@ -1,0 +1,10 @@
+Package: bplots
+Title: Minimal ggplot themes with Avenir fonts. 
+Version: 0.0.0.9000
+Authors@R: person("Brooke", "Watson", email = "brookemeredithwatson@gmail.com", role = c("aut", "cre"))
+Description: Minimal ggplot themes with Avenir fonts. Currently only includes two functions, theme_avenir and theme_blank, two convenience functions i keep in my .Renviron. Planning to add more as needed and to make sure it has functionality on Windows. 
+Depends: R (>= 3.3.3)
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1.9000
