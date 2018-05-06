@@ -1,5 +1,5 @@
-#' Minimal ggplot2 theme using Avenir fonts
-#' Functionally an Avenir spin on (https://github.com/hrbrmstr/hrbrthemes/)
+#' Minimal ggplot2 theme using Raleway fonts.
+#' Functionally a Raleway spin on (https://github.com/hrbrmstr/hrbrthemes/)
 #'
 #' @import ggplot2
 #'
@@ -25,7 +25,7 @@
 #'
 #' ggplot(mtcars, aes(wt, mpg), col = displ) +
 #'   geom_point() +
-#'   theme_avenir() +
+#'   theme_Raleway() +
 #'   labs(x = "omg this is very much the x axis",
 #'     y = "yes definitely this indeed is the y axis",
 #'     title = "Testing Testing: here's the thing",
@@ -33,17 +33,17 @@
 #'     caption = label_wrap_gen(120)("wow when do you actually ever include captions in your ggplots??? just throw it in your Fig. 1 description and keep it moving. but fine, this is what it would look like if you insist.")
 #'     )
 #' }
-theme_avenir <- function(
-    base_family="Avenir", base_size = 11.5,
+theme_raleway <- function(
+    base_family="Raleway", base_size = 11.5,
     plot_title_family=base_family, plot_title_size = 16,
-	plot_title_margin = 10,
+    plot_title_margin = 10,
     plot_title_face = "plain",
-    subtitle_family="Avenir",
+    subtitle_family="Raleway",
     subtitle_size = 13,
     subtitle_face = "plain", subtitle_margin = 15,
     strip_text_family = base_family, strip_text_size = 12,
     strip_text_face = "plain",
-    caption_family="Avenir",
+    caption_family="Raleway",
     caption_size = 10,
     caption_face = "plain", caption_margin = 10,
     caption = NULL,

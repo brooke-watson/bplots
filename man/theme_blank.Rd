@@ -2,11 +2,10 @@
 % Please edit documentation in R/theme_blank.R
 \name{theme_blank}
 \alias{theme_blank}
-\title{Completely blank theme for ggplot2, with Avenir default fonts.}
+\title{Completely blank theme for ggplot2, with Raleway default fonts.}
 \usage{
-theme_blank(base_family = "Avenir", base_size = 10, plot_title_size = 16,
-  plot_title_face = "bold", plot_title_margin = 10, legend_size = 12,
-  strip_text_size = 12)
+theme_blank(base_family = "Raleway", base_size = 10, plot_title_size = 16,
+  plot_title_margin = 10, legend_size = 12, strip_text_size = 12)
 }
 \arguments{
 \item{base_family, base_size}{base family and size}

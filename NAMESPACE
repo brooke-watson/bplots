@@ -2,4 +2,6 @@
 
 export(theme_avenir)
 export(theme_blank)
+export(theme_fancy)
+export(theme_raleway)
 import(ggplot2)

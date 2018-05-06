@@ -1,4 +1,4 @@
-#' Completely blank theme for ggplot2, with Avenir default fonts.
+#' Completely blank theme for ggplot2, with Raleway default fonts.
 #'
 #' Particularly useful for pie charts.
 #'
@@ -11,9 +11,9 @@
 #'
 #' @export
 theme_blank <- function(
-    base_family = "Avenir", base_size = 10,
+    base_family = "Raleway", base_size = 10,
     plot_title_size = 16,
-    plot_title_face="bold", plot_title_margin = 10,
+	plot_title_margin = 10,
     legend_size = 12,
     strip_text_size = 12
     ) {
@@ -25,6 +25,7 @@ theme_blank <- function(
         panel.border = element_blank(),
         panel.grid=element_blank(),
         axis.ticks = element_blank(),
+        axis.text = element_blank(),
         plot.title=element_text(size=plot_title_size),
         legend.title = element_text(size=legend_size),
         strip.text = element_text(size = strip_text_size)
