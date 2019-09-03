@@ -34,41 +34,43 @@
 #'     )
 #' }
 theme_avenir <- function(
-                         base_family = "Avenir", base_size = 11.5,
-                         plot_title_family = base_family, plot_title_size = 16,
-                         plot_title_margin = 10,
+                         base_family = "Avenir", base_size = 10,
+                         plot_title_family = base_family, plot_title_size = base_size * 1.4,
+                         plot_title_margin = 5,
                          plot_title_face = "plain",
                          subtitle_family = "Avenir",
-                         subtitle_size = 13,
-                         subtitle_face = "plain", subtitle_margin = 15,
-                         strip_text_family = base_family, strip_text_size = 12,
+                         subtitle_size = base_size * 1.1,
+                         subtitle_face = "plain", subtitle_margin = 5,
+                         strip_text_family = base_family, strip_text_size = base_size,
                          strip_text_face = "plain",
                          caption_family = "Avenir",
-                         caption_size = 10,
-                         caption_face = "plain", caption_margin = 10,
+                         caption_size = base_size * 0.8,
+                         caption_face = "plain", caption_margin = 5,
                          caption = NULL,
                          axis_text_size = base_size,
+                         axis_title_x = T,
+                         axis_title_y = T,
                          axis_title_family = base_family,
-                         axis_title_size = 9,
+                         axis_title_size = base_size * 0.8,
                          axis_title_face = "plain",
                          axis_title_just = "rt",
-                         plot_margin = margin(30, 30, 30, 30),
-                         grid_col = "#cccccc", grid = TRUE,
+                         plot_margin = margin(5, 5, 5, 5),
+                         grid_col = "#cccccc", grid = F, panel_x = F, panel_y = T,
                          axis_col = "#cccccc", axis = FALSE, ticks = FALSE) {
   ret <- ggplot2::theme_minimal(base_family = base_family, base_size = base_size)
 
   ret <- ret + theme(legend.background = element_blank())
   ret <- ret + theme(legend.key = element_blank())
 
-  if (inherits(grid, "character") | grid == TRUE) {
-    ret <- ret + theme(panel.grid = element_line(color = grid_col, size = 0.2))
-    ret <- ret + theme(panel.grid.major = element_line(color = grid_col, size = 0.2))
-    ret <- ret + theme(panel.grid.minor = element_line(color = grid_col, size = 0.15))
+  if (grid == F) {
+    ret <- ret + theme(panel.grid = element_blank())
+  }
 
-    if (inherits(grid, "character")) {
-      if (regexpr("X", grid, ignore.case = TRUE)[1] < 0) ret <- ret + theme(panel.grid.major.x = element_blank())
-      if (regexpr("Y", grid, ignore.case = TRUE)[1] < 0) ret <- ret + theme(panel.grid.major.y = element_blank())
-    }
+  if (grid == T | panel_x == T) {
+    ret <- ret + theme(panel.grid.major.x = element_line(color = grid_col, size = 0.2))
+  }
+  if (grid == T | panel_y == T) {
+    ret <- ret + theme(panel.grid.major.y = element_line(color = grid_col, size = 0.2))
   } else {
     ret <- ret + theme(panel.grid = element_blank())
   }
@@ -112,14 +114,22 @@ theme_avenir <- function(
   ret <- ret + theme(axis.text.x = element_text(size = axis_text_size, margin = margin(t = 0)))
   ret <- ret + theme(axis.text.y = element_text(size = axis_text_size, margin = margin(r = 0)))
   ret <- ret + theme(axis.title = element_text(size = axis_title_size, family = axis_title_family))
-  ret <- ret + theme(axis.title.x = element_text(
-    hjust = xj, size = axis_title_size,
-    family = axis_title_family, face = axis_title_face
-  ))
-  ret <- ret + theme(axis.title.y = element_text(
-    hjust = yj, size = axis_title_size,
-    family = axis_title_family, face = axis_title_face
-  ))
+  if (axis_title_x) {
+    ret <- ret + theme(axis.title.x = element_text(
+      hjust = xj, size = axis_title_size,
+      family = axis_title_family, face = axis_title_face
+    ))
+  } else {
+    ret <- ret + theme(axis.title.x = element_blank())
+  }
+  if (axis_title_y) {
+    ret <- ret + theme(axis.title.y = element_text(
+      hjust = yj, size = axis_title_size,
+      family = axis_title_family, face = axis_title_face
+    ))
+  } else {
+    ret <- ret + theme(axis.title.y = element_blank())
+  }
   ret <- ret + theme(axis.title.y.right = element_text(
     hjust = yj, size = axis_title_size, angle = 90,
     family = axis_title_family, face = axis_title_face
